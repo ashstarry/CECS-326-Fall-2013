@@ -13,6 +13,7 @@
 int main(int argc, char *argv[])
 {
 int i,j,n;
+int randA[];
 if (argc !=2) {
 printf("\n Usage: Need filename and one argument\n", argv[0]);
 exit(1);
@@ -20,8 +21,8 @@ exit(1);
 n = atoi(argv[1]);
 srand(n);
 for (i=0; i<10;++i){
-j = rand()%100;
-printf ("\n %d",j);
+randA[i] = rand()%100;
+printf ("\n %d",randA[i]);
 }
 printf ("\n");
 exit(0);
