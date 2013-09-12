@@ -10,20 +10,22 @@
 /****************************************************************/
 # include <stdio.h>
 # include <stdlib.h>
+
 int main(int argc, char *argv[])
 {
-int i,j,n;
-int randA[];
-if (argc !=2) {
-printf("\n Usage: Need filename and one argument\n", argv[0]);
-exit(1);
-}
-n = atoi(argv[1]);
-srand(n);
-for (i=0; i<10;++i){
-randA[i] = rand()%100;
-printf ("\n %d",randA[i]);
-}
-printf ("\n");
-exit(0);
+	int i,j,n;
+	int randA[];
+	if (argc !=2)
+	{
+		printf("\n Usage: Need filename and one argument\n", argv[0]);
+		exit(1);
+	}
+	n = atoi(argv[1]); // Index 2 (number N)
+	srand(n);          // Seed
+	for (i=0; i<n;i++)
+	{
+		randA[n] = (-100 + (rand() % 100));
+	}
+	printf ("\n");
+	exit(0);
 }
