@@ -11,21 +11,51 @@
 # include <stdio.h>
 # include <stdlib.h>
 
+int* newRandomArray(int);
+
 int main(int argc, char *argv[])
 {
-	int i,j,n;
-	int randA[];
-	if (argc !=2)
+	int i,j, n, sum, max, min;
+	int *randA;
+	double average;
+	if (argc !=2)       // If argument character is not two fields, flag.
 	{
 		printf("\n Usage: Need filename and one argument\n", argv[0]);
 		exit(1);
 	}
 	n = atoi(argv[1]); // Index 2 (number N)
-	srand(n);          // Seed
-	for (i=0; i<n;i++)
+	srand(time(NULL)); // Seed, initialize random number generator
+	randA = newRandomArray(n);
+	for (i=0; i<n;i++) // Start at i = 0, iterate to # n random numbers
 	{
-		randA[n] = (-100 + (rand() % 100));
+        while(randA[n]>max)
+           { 
+              max=randA[n]; // If number generate is > max, replace max
+           }
+        while(randA[n]<min)
+           { 
+              min=randA[n]; // If number generate is < max, replace min
+           }
+           sum = randA[i] + sum;  // Place hold a sum of all random integers
 	}
 	printf ("\n");
+	average = (sum/(double)n); // Calculate average by sum of random integers
+	for (j=0; j < n; j++)
+	{
+	    printf("%d ", randA[j]);     // Display the array of random integers
+    }
+    printf("\nAverage of random integers is: %f", average, "\n");
+    printf("\nMaximum of random integers is: %d", max, "\n");
+    printf("\nMinimum of random integers is: %d", min, "\n");
+    free(randA);     // Free memory
 	exit(0);
+}
+
+int* newRandomArray(int n)
+{
+     int* h = (int *) malloc(n*sizeof(int));
+     int i;
+     for (i=0; i<n; ++i)
+         h[i] = rand()%201-100;
+         return h;
 }
