@@ -31,13 +31,18 @@ int main(int argc, char *argv[])
 	randA = newRandomArray(n);
 	for (i=0; i<n;i++) // Start at i = 0, iterate to # n random numbers
 	{
-        if(randA[n]>max || randA[n]==max)
+        if(randA[n]>max)
         {
             max=randA[n]; // If number generate is > max, replace max
         }
-        else if(randA[n]<min || randA[n]==min)
+        else if(randA[n]<min)
         {
             min=randA[n]; // If number generate is < max, replace min
+        }
+        else
+        {
+            max = max;
+            min = min;
         }
         sum = randA[i] + sum;  // Place hold a sum of all random integers
 	}
