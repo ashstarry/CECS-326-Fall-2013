@@ -16,8 +16,8 @@ int* newRandomArray(int);
 int main(int argc, char *argv[])
 {
 	int i,j, n, sum, max, min;
-	max = -100;
-	min = 100;
+	max = -100; // First random number will be max if greater than -100 range
+	min = 100;  // First random number will be min if less than 100 range
 	sum = 0;
 	int *randA;
 	double average = 0.0;
@@ -31,24 +31,14 @@ int main(int argc, char *argv[])
 	randA = newRandomArray(n);
 	for (i=0; i<n;i++) // Start at i = 0, iterate to # n random numbers
 	{
-        if(randA[n]>max)
+        if(randA[n]>max || randA[n]==max)
         {
             max=randA[n]; // If number generate is > max, replace max
         }
-/*        else
-       {
-            max = max;
-       }
-*/
-        else if(randA[n]<min)
+        else if(randA[n]<min || randA[n]==min)
         {
             min=randA[n]; // If number generate is < max, replace min
         }
-/*        else
-        {
-            min = min;
-        }
-*/
         sum = randA[i] + sum;  // Place hold a sum of all random integers
 	}
 	printf ("\n");
