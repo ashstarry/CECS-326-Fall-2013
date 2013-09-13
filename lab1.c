@@ -16,8 +16,8 @@ int* newRandomArray(int);
 int main(int argc, char *argv[])
 {
 	int i,j, n, sum, max, min;
-	max = 0;
-	min = 0;
+	max = -100;
+	min = 100;
 	sum = 0;
 	int *randA;
 	double average = 0.0;
