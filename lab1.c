@@ -31,13 +31,13 @@ int main(int argc, char *argv[])
 	randA = newRandomArray(n);
 	for (i=0; i<n;i++) // Start at i = 0, iterate to # n random numbers
 	{
-        if(randA[n]>max)
+        if(randA[i]>max)
         {
-            max=randA[n]; // If number generate is > max, replace max
+            max=randA[i]; // If number generate is > max, replace max
         }
-        else if(randA[n]<min)
+        else if(randA[i]<min)
         {
-            min=randA[n]; // If number generate is < max, replace min
+            min=randA[i]; // If number generate is < max, replace min
         }
         else
         {
@@ -65,6 +65,6 @@ int* newRandomArray(int n)
      int* h = (int *) malloc(n*sizeof(int)); // malloc allocates memory for array
      int i;
      for (i=0; i<n; ++i)
-         h[i] = rand()%201-100;
+         h[i] = rand()%201-100;              // Sets range for -100 to 100
          return h;
 }
