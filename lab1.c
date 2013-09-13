@@ -29,6 +29,8 @@ int main(int argc, char *argv[])
 	n = atoi(argv[1]); // Index 2 (number N)
 	srand(time(NULL)); // Seed, initialize random number generator
 	randA = newRandomArray(n);
+	max = randA[0];
+	min = randA[0];
 	for (i=0; i<n;i++) // Start at i = 0, iterate to # n random numbers
 	{
         if(randA[n]>max)
