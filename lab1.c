@@ -16,8 +16,11 @@ int* newRandomArray(int);
 int main(int argc, char *argv[])
 {
 	int i,j, n, sum, max, min;
+	max = 0;
+	min = 0;
+	sum = 0;
 	int *randA;
-	double average;
+	double average = 0.0;
 	if (argc !=2)       // If argument character is not two fields, flag.
 	{
 		printf("\n Usage: Need filename and one argument\n", argv[0]);
@@ -28,15 +31,15 @@ int main(int argc, char *argv[])
 	randA = newRandomArray(n);
 	for (i=0; i<n;i++) // Start at i = 0, iterate to # n random numbers
 	{
-        while(randA[n]>max)
+        if(randA[n]>max)
            { 
               max=randA[n]; // If number generate is > max, replace max
            }
-        while(randA[n]<min)
+        else if(randA[n]<min)
            { 
               min=randA[n]; // If number generate is < max, replace min
            }
-           sum = randA[i] + sum;  // Place hold a sum of all random integers
+        sum = randA[i] + sum;  // Place hold a sum of all random integers
 	}
 	printf ("\n");
 	average = (sum/(double)n); // Calculate average by sum of random integers
@@ -56,6 +59,6 @@ int* newRandomArray(int n)
      int* h = (int *) malloc(n*sizeof(int));
      int i;
      for (i=0; i<n; ++i)
-         h[i] = rand()%201-100;
+         h[i] = rand()%(201-100);
          return h;
 }
