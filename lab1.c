@@ -51,14 +51,15 @@ int main(int argc, char *argv[])
     }
     printf("\nAverage of random integers is: %f", average, "\n");
     printf("\nMaximum of random integers is: %d", max, "\n");
-    printf("\nMinimum of random integers is: %d", min, "\n\n");
+    printf("\nMinimum of random integers is: %d", min, "\n");
+    printf ("\n");
     free(randA);     // Free memory
 	exit(0);
 }
 
 int* newRandomArray(int n)
 {
-     int* h = (int *) malloc(n*sizeof(int));
+     int* h = (int *) malloc(n*sizeof(int)); // malloc allocates memory for array
      int i;
      for (i=0; i<n; ++i)
          h[i] = rand()%(201-100);
