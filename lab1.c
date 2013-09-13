@@ -18,10 +18,10 @@ int main(int argc, char *argv[])
 	int i,j, n, sum, max, min;
 	max = -100; // First random number will be max if greater than -100 range
 	min = 100;  // First random number will be min if less than 100 range
-	sum = 0;
+	sum = 0;    // Initialize sum to be zero
 	int *randA;
 	double average = 0.0;
-	if (argc !=2)       // If argument character is not two fields, flag.
+	if (argc !=2) // If argument character is not two fields, print statement
 	{
 		printf("\n Usage: Need filename and one argument\n", argv[0]);
 		exit(1);
@@ -65,6 +65,6 @@ int* newRandomArray(int n)
      int* h = (int *) malloc(n*sizeof(int)); // malloc allocates memory for array
      int i;
      for (i=0; i<n; ++i)
-         h[i] = rand()%(201-100);
+         h[i] = rand()%201-100;
          return h;
 }
