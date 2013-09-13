@@ -16,8 +16,6 @@ int* newRandomArray(int);
 int main(int argc, char *argv[])
 {
 	int i,j, n, sum, max, min;
-	max = -100; // First random number will be max if greater than -100 range
-	min = 100;  // First random number will be min if less than 100 range
 	sum = 0;    // Initialize sum to be zero
 	int *randA;
 	double average = 0.0;
@@ -29,6 +27,8 @@ int main(int argc, char *argv[])
 	n = atoi(argv[1]); // Index 2 (number N)
 	srand(time(NULL)); // Seed, initialize random number generator
 	randA = newRandomArray(n);
+	max = randA[0]; // First random number will be max if greater than -100 range
+	min = randA[0];  // First random number will be min if less than 100 range
 	for (i=0; i<n;i++) // Start at i = 0, iterate to # n random numbers
 	{
         if(randA[i]>max)
