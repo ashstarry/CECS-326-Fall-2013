@@ -1,5 +1,8 @@
 /****************************************************************/
-/*	PROGRAM NAME: lab1.c */
+/*	PROGRAM NAME: lab1.c
+/*	CLASS: CECS-326
+/*	INSTRUCTOR: Mr. Haney Williams
+/*	STUDENT: Steven Le
 /*	DESCRIPTION: This C program named lab1 stores N random
 /*	numbers in an array named randA[] and determines the largest,
 /*	smallest, and average values of this array. The array displays
@@ -54,7 +57,7 @@ int main(int argc, char *argv[])
     printf("\nMaximum of random integers is: %d", max, "\n");		// Display max
     printf("\nMinimum of random integers is: %d", min, "\n");		// Display min
     printf("\nAverage of random integers is: %f", average, "\n");	// Display average
-    printf ("\n");
+    printf("\n");
     free(randA);     // Deallocate memory block
 	exit(0);
 }
