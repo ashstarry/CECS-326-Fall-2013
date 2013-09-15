@@ -1,12 +1,11 @@
 /****************************************************************/
 /*	PROGRAM NAME: lab1.c */
-/*	DESCRIPTION: Write a C program named lab1 to store N random
-/*	numbers in an array named randA[ ] and determine the largest,
-/*	smallest, and average values of this array. Display the array
+/*	DESCRIPTION: This C program named lab1 stores N random
+/*	numbers in an array named randA[] and determines the largest,
+/*	smallest, and average values of this array. The array displays
 /*	elements that store these values. The random numbers range
-/*	from -100 to +100. N is a command line argument. Use the
-/*	debugger to go through the program. Use all the debugger
-/*	commands.
+/*	from -100 to +100. N is a command line argument. The
+/*	debugger is utilized to go transverse program.
 /****************************************************************/
 # include <stdio.h>
 # include <stdlib.h>
@@ -52,9 +51,9 @@ int main(int argc, char *argv[])
 	{
 	    printf("%d ", randA[j]);     // Display the array of random integers
     }
-    printf("\nAverage of random integers is: %f", average, "\n");
-    printf("\nMaximum of random integers is: %d", max, "\n");
-    printf("\nMinimum of random integers is: %d", min, "\n");
+    printf("\nMaximum of random integers is: %d", max, "\n");		// Display max
+    printf("\nMinimum of random integers is: %d", min, "\n");		// Display min
+    printf("\nAverage of random integers is: %f", average, "\n");	// Display average
     printf ("\n");
     free(randA);     // Deallocate memory block
 	exit(0);
