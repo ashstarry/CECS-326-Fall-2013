@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
       printf("\n Usage: %s processes\n", argv[0]); 
       exit(1); 
     } 
-    n = atoi(argv[1]); m = 10; 
+    n = atoi(argv[1]); m = 2; 
     childpid = 0; 
     for (i=0; i<n;i++) 
         if (childpid = fork()) break; 
