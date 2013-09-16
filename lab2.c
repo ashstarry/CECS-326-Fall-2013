@@ -27,9 +27,8 @@ int main(int argc, char *argv[])
       perror ("\n The fork failed\n"); 
       exit(1); 
     } 
-    printf("\n %d: process ID:%6ld parent ID:%6ld child 
-    ID:%6ld",i, (long)getpid(), (long)getppid(), (long)childpid); 
-    seed = (int)(getpid() + childpid); 8
+    printf("\n %d: process ID:%6ld parent ID:%6ld child ID:%6ld",i, (long)getpid(), (long)getppid(), (long)childpid); 
+    seed = (int)(getpid() + childpid);
     srand(seed); 
      /* since each process has a different childpid, using the childpid 
      as the seed number will restart the random function. 
