@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
       perror ("The fork failed.\n"); 
       exit(1); 
     } 
-    printf("%d: process ID:%6ld parent ID:%6ld child ID:%6ld\n",i, (long)getpid(), (long)getppid(), (long)childpid); 
+    printf("%d: process ID:%6ld parent ID:%6ld child ID:%6ld",i, (long)getpid(), (long)getppid(), (long)childpid); 
     seed = (int)(getpid() + childpid);
     srand(seed); 
      /* since each process has a different childpid, using the childpid 
