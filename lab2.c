@@ -23,19 +23,19 @@ int main(int argc, char *argv[])
     } 
     n = atoi(argv[1]);  // Argument index 1 is number of processes n
     m = atoi(argv[2]);  // Argument index 2 is maximum sleeptime m
-    if (n > 9) // If argument n is greater than 10, throw exception
+    if (n > 9)          // If argument n is greater than 10, throw exception
     { 
       printf("Input error.\n");
       printf("Number of processes n must be less than 10.\n"); 
       exit(1); 
     }
-    if (m > 19) // If argument m is greater than 20, throw exception
+    if (m > 19)      // If argument m is greater than 20, throw exception
     { 
       printf("Input error.\n");
       printf("Maximum sleeptime m must be less than 20.\n"); 
       exit(1); 
     }
-    childpid = 0; 
+    childpid = 0;     // Initialize childpid
     for (i=0; i<n;i++) 
         if (childpid = fork()) break; 
     if (childpid == -1)
@@ -53,5 +53,5 @@ int main(int argc, char *argv[])
     sleeptime = rand()%m; 
     printf (" sleep = %d\n", sleeptime); 
     sleep(sleeptime);  
-    exit(0); 
+    exit(0);
 }
