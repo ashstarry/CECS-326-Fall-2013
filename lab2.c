@@ -18,20 +18,20 @@ int main(int argc, char *argv[])
     pid_t childpid; 
     if (argc !=3) 
     { 
-      printf("\n Usage: %s processes\n", argv[0]); 
+      printf("Usage: %s processes\n", argv[0]); 
       exit(1); 
     } 
     n = atoi(argv[1]);  // Argument index 1 is number of processes n
     m = atoi(argv[2]);  // Argument index 2 is maximum sleeptime m
     if (n > 9) // If argument n is greater than 10, throw exception
     { 
-      printf("\n Input error.\n");
+      printf("Input error.\n");
       printf("Number of processes n must be less than 10.\n"); 
       exit(1); 
     }
     if (m > 19) // If argument m is greater than 20, throw exception
     { 
-      printf("\n Input error.\n");
+      printf("Input error.\n");
       printf("Maximum sleeptime m must be less than 20.\n"); 
       exit(1); 
     }
@@ -40,10 +40,10 @@ int main(int argc, char *argv[])
         if (childpid = fork()) break; 
     if (childpid == -1)
     { 
-      perror ("\n The fork failed\n"); 
+      perror ("The fork failed.\n"); 
       exit(1); 
     } 
-    printf("\n %d: process ID:%6ld parent ID:%6ld child ID:%6ld",i, (long)getpid(), (long)getppid(), (long)childpid); 
+    printf("%d: process ID:%6ld parent ID:%6ld child ID:%6ld\n",i, (long)getpid(), (long)getppid(), (long)childpid); 
     seed = (int)(getpid() + childpid);
     srand(seed); 
      /* since each process has a different childpid, using the childpid 
