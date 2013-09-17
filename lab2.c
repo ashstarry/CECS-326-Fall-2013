@@ -52,7 +52,6 @@ int main(int argc, char *argv[])
      */ 
     sleeptime = rand()%m; 
     printf (" sleep = %d\n", sleeptime); 
-    sleep(sleeptime); 
-    printf("Maximum sleeptime m is: \n", m); 
+    sleep(sleeptime);  
     exit(0); 
 }
