@@ -21,13 +21,13 @@ int main(int argc, char *argv[])
       printf("\n Usage: %s processes\n", argv[0]); 
       exit(1); 
     } 
-    else if (argc[1] > 9) // If argument n is greater than 10, throw exception
+    else if (argv[1] > 9) // If argument n is greater than 10, throw exception
     { 
       printf("\n Input error.\n");
       printf("Number of processes n must be less than 10.\n"); 
       exit(1); 
     }
-    else if (argc[2] > 19) // If argument m is greater than 20, throw exception
+    else if (argv[2] > 19) // If argument m is greater than 20, throw exception
     { 
       printf("\n Input error.\n");
       printf("Maximum sleeptime m must be less than 20.\n"; 
