@@ -16,12 +16,13 @@ int main(int argc, char *argv[])
 {
     int i, m, n, sleeptime, seed; 
     pid_t childpid; 
-    if (argc !=2) 
+    if (argc !=3) 
     { 
       printf("\n Usage: %s processes\n", argv[0]); 
       exit(1); 
     } 
-    n = atoi(argv[1]); m = 2; 
+    n = atoi(argv[1]);
+    m = atoi(argv[2]);
     childpid = 0; 
     for (i=0; i<n;i++) 
         if (childpid = fork()) break; 
