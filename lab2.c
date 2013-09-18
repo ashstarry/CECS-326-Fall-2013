@@ -26,13 +26,13 @@ int main(int argc, char *argv[])
     if (n > 9 || n <= 0) // If argument n is greater than 10, throw exception
     { 
       printf("Input error.\n");
-      printf("Number of processes n must be less than 10.\n"); 
+      printf("Number of processes n must be < 10 and > 0.\n"); 
       exit(1); 
     }
     if (m > 19 || m <= 0) // If argument m is greater than 20, throw exception
     { 
       printf("Input error.\n");
-      printf("Maximum sleeptime m must be less than 20.\n"); 
+      printf("Maximum sleeptime m must be < 20 and > 0.\n"); 
       exit(1); 
     }
     childpid = 0;     // Initialize childpid
@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
      Therefore, each process will have a different sleeptime 
      */ 
     sleeptime = rand()%m; 
-    printf (" sleep = %d\n", sleeptime); 
     sleep(sleeptime);  
+    printf (" sleep = %d\n", sleeptime); 
     exit(0);
 }
