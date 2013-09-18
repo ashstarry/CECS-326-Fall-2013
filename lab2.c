@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 {
     int i, m, n, sleeptime, seed; 
     pid_t childpid; 
-    if (argc !=3) 
+    if (argc !=3) // If arguments are not 3 inputs
     { 
       printf("Usage: %s processes\n", argv[0]); 
       exit(1); 
