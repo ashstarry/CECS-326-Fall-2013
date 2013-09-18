@@ -23,13 +23,13 @@ int main(int argc, char *argv[])
     } 
     n = atoi(argv[1]);  // Argument index 1 is number of processes n
     m = atoi(argv[2]);  // Argument index 2 is maximum sleeptime m
-    if (n > 9 || n < 0) // If argument n is greater than 10, throw exception
+    if (n >= 9 || n < 0) // If argument n is greater than 10, throw exception
     { 
       printf("Input error.\n");
       printf("Number of processes n must be less than 10.\n"); 
       exit(1); 
     }
-    if (m > 19 || m < 0) // If argument m is greater than 20, throw exception
+    if (m >= 19 || m < 0) // If argument m is greater than 20, throw exception
     { 
       printf("Input error.\n");
       printf("Maximum sleeptime m must be less than 20.\n"); 
