@@ -52,6 +52,6 @@ int main(int argc, char *argv[])
      */ 
     sleeptime = rand()%m; 
     sleep(sleeptime);  
-    printf (" sleep = %d\n", sleeptime); 
+    printf (" sleep = %d\n", sleeptime);
     exit(0);
 }
