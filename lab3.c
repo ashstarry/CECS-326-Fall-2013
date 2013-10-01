@@ -19,13 +19,13 @@ void main(int argc, char *argv[])
 {
      if (argc > 1)
      {
-          static char *new_argv[] = {"cat", "lab1.c", (char *)0};
-          execvp("/bin/cat", new_argv);
-          perror("exec failure");
-          exit(1);
-//        execvp(argv[1], &argv[1]);
-//        perror ("exec failure");
-//        exit(1);
+ //         static char *new_argv[] = {"cat", "lab1.c", (char *)0};
+ //        execvp("/bin/cat", new_argv);
+ //        perror("exec failure");
+ //         exit(1);
+        execvp(argv[1], &argv[1]);
+        perror ("exec failure");
+        exit(1);
      }
      printf("\n Usage: %s text_file\n", *argv);
      exit(1) ;
