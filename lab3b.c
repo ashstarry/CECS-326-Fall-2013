@@ -17,7 +17,6 @@
 
 void main(int argc, char *argv[])
 {
-     if (argc > 1)
      {
          static char *new_argv[] = {"lab2", "2", "3", (char *)0};
          execvp("./lab2", new_argv);
