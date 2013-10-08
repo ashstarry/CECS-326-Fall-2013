@@ -22,9 +22,9 @@ void main(int argc, char *argv[])
          execvp("./lab2", new_argv);
          perror("exec failure");
          exit(1);
-  //      execvp(argv[1], &argv[1]);
-   //     perror ("exec failure");
-   //     exit(1);
+   //    execvp(argv[1], &argv[1]);
+   //    perror ("exec failure");
+   //    exit(1);
      }
      printf("\n Usage: %s text_file\n", *argv);
      exit(1) ;
