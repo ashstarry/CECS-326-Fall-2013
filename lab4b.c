@@ -25,11 +25,10 @@ int display(char *m)
     char err_msg[25];
     switch (fork())
     {
-           case 0:
-                execlp("/bin/echo", "echo", m, (char *) NULL);
+           case 0: // Replace with non-existing directory to check for results
+                execlp("/righteous", "echo", m, (char *) NULL);
                 sprintf (err_msg, "%s Exec failure", m);
-                perror(err_msg);
-                return(1);
+                perror(err_msg); return(1);
            case -1:
                 perror ("Fork failure"); return(2);
            default:
