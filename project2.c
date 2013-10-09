@@ -13,7 +13,7 @@
 
 int main(int argc, char *argv[]) 
 {
-    int i, m, n, sleeptime, seed; 
+    int i, i0, i1, m, n, sleeptime, seed; 
     pid_t childpid; 
     if (argc !=4) // If arguments are not 4 inputs
     { 
@@ -21,12 +21,13 @@ int main(int argc, char *argv[])
       exit(1); 
     } 
     n = 4;     // Number of processes = 4
-//    n = atoi(argv[1]);  // Argument index 1 is number of processes n
+    i0 = atoi(argv[1]); // Argument index 1 is first integer
+    i1 = atoi(argv[2]); // Argument index 2 is second integer
     m = atoi(argv[3]);   // Argument index 3 is maximum sleeptime m
     if (m > 50 || m <= 0) // If argument m is greater than 50, 0, or negative, throw exception
     { 
       printf("Input error.\n");
-      printf("Maximum sleeptime m must be < 20 and > 0.\n"); 
+      printf("Maximum sleeptime m must be < 50 and > 0.\n"); 
       exit(1); 
     }
     childpid = 0;     // Initialize childpid
