@@ -48,6 +48,7 @@ int main(int argc, char *argv[])
         childpid = 0;
         if (childpid = fork())
         {
+           sleep(rand()%m);
            printf("Forked child %d\n", (long)childpid);
            break;
         } 
@@ -56,14 +57,12 @@ int main(int argc, char *argv[])
           perror ("The fork failed.\n"); 
           exit(1); 
         }
- 	seed = (int)(getpid() + childpid);
-    	srand(seed); 
+    	srand(time(NULL)); 
      	/* since each process has a different childpid, using the childpid 
      	as the seed number will restart the random function. 
      	Therefore, each process will have a different sleeptime 
-     	*/ 
-    	sleeptime = rand()%m; 
-   	sleep(sleeptime); 
+     	*/  
+   	    sleep(rand()%m); 
        
         switch(i)
         {
