@@ -42,12 +42,13 @@ int main(int argc, char *argv[])
     quotient = divide(i0, i1);
     product = multiply(i0, i1);
     printf("I am parent process, the maximum sleep time is %d and the two numbers are %d and %d.\n", m, i0, i1); 
-    childpid = 0;     // Initialize childpid
+         // Initialize childpid
     for (i=0; i<n;i++) 
     {
+        childpid = 0;
         if (childpid = fork())
         {
-           printf("Forked child %d\n", (long)getpid());
+           printf("Forked child %d\n", (long)childpid);
            break;
         } 
         if (childpid == -1)
@@ -67,16 +68,16 @@ int main(int argc, char *argv[])
         switch(i)
         {
          case 0:
-              printf("I am child number %d with PID %d, the sum is %d\n", i, (long)getpid, sum); 
+              printf("I am child number %d with PID %d, the sum is %d\n", i, (long)getpid(), sum); 
               break;
          case 1:
-              printf("I am child number %d with PID %d, the difference is %d\n", i, (long)getpid, difference);
+              printf("I am child number %d with PID %d, the difference is %d\n", i, (long)getpid(), difference);
               break;
          case 2:
-              printf("I am child number %d with PID %d, the quotient is %lf\n", i, (long)getpid, quotient);
+              printf("I am child number %d with PID %d, the quotient is %lf\n", i, (long)getpid(), quotient);
               break;
          case 3:
-              printf("I am child number %d with PID %d, the product is %d\n", i, (long)getpid, product);
+              printf("I am child number %d with PID %d, the product is %d\n", i, (long)getpid(), product);
               break;
 	 default:
 	      printf("An error has occured");
