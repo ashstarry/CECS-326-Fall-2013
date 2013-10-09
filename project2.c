@@ -21,18 +21,23 @@ int main(int argc, char *argv[])
       exit(1); 
     } 
     n = 4;     // Number of processes = 4
-    i0 = atoi(argv[1]); // Argument index 1 is first integer
-    i1 = atoi(argv[2]); // Argument index 2 is second integer
-    m = atoi(argv[3]);   // Argument index 3 is maximum sleeptime m
+    m = atoi(argv[1]);   // Argument index 1 is maximum sleeptime m
+    i0 = atoi(argv[2]); // Argument index 2 is first integer
+    i1 = atoi(argv[3]); // Argument index 3 is second integer
     if (m > 50 || m <= 0) // If argument m is greater than 50, 0, or negative, throw exception
     { 
       printf("Input error.\n");
       printf("Maximum sleeptime m must be < 50 and > 0.\n"); 
       exit(1); 
     }
+    printf("I am parent process, the maximum sleep time is %d and the two numbers are %d and %d.\n", m, i0, i1); 
     childpid = 0;     // Initialize childpid
     for (i=0; i<n;i++) 
-        if (childpid = fork()) break; 
+        if (childpid = fork())
+        {
+           printf("Forked child %d\n", (long)childpid);
+           break;
+        } 
     if (childpid == -1)
     { 
       perror ("The fork failed.\n"); 
