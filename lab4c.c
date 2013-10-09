@@ -1,5 +1,5 @@
 /**************************************************************************/ 
-/* PROGRAM NAME: lab4a.c
+/* PROGRAM NAME: lab4c.c
 /* CLASS: CECS-326
 /* INSTRUCTOR: Mr. Haney Williams
 /* STUDENT: Steven Le
