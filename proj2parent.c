@@ -14,6 +14,7 @@
 # include<stdlib.h>
 # include<sys/types.h>
 # include<unistd.h>
+# include<ctype.h>
 
 int main(int argc, char *argv[]) 
 {
@@ -31,6 +32,13 @@ int main(int argc, char *argv[])
     T = atoi(argv[1]);    // Argument index 1 is maximum sleeptime T
     A = atoi(argv[2]);    // Argument index 2 is first integer
     B = atoi(argv[3]);    // Argument index 3 is second integer
+    // If argument T, A, or B is a letter, throw exception
+    if (!isdigit(T) || !(isdigit(A)) || !(isdigit(B)))
+    { 
+      printf("Input error.\n");
+      printf("Arguments can't be letters.\n"); 
+      exit(1); 
+    }
     if (T > 50 || T <= 0) // If argument T is greater than 50, 0, or negative, throw exception
     { 
       printf("Input error.\n");
@@ -40,6 +48,8 @@ int main(int argc, char *argv[])
     srand(time(NULL));
     // Print parent process, max sleep, and the two arguments
     printf("I am parent process, the maximum sleep time is %d and the two numbers are %d and %d\n", T, A, B); 
+    // Sleep using T
+    sleep(rand()%T);
     // Generate child processes using fork()
     for (i=0; i<n;i++) 
     {  
@@ -57,8 +67,6 @@ int main(int argc, char *argv[])
               perror ("The fork failed.\n"); 
           	  return(2); 
 	 default:
-	      // Sleep using T
-	      sleep(rand()%T);
 	      // Print Forked Child 
 	      printf("\nForked child %d\n", childpid);    
          }    // End switch
