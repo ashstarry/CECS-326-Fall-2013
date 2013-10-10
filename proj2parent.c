@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     }
     srand(time(NULL));
     // Print parent process, max sleep, and the two arguments
-    printf("I am parent process, the maximum sleep time is %d and the two numbers are %d and %d.\n", T, A, B); 
+    printf("I am parent process, the maximum sleep time is %d and the two numbers are %d and %d\n", T, A, B); 
     // Generate child processes using fork()
     for (i=0; i<n;i++) 
     {  
