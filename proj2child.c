@@ -41,13 +41,13 @@ int main(int argc, char *argv[])
     case 1: // DIFFERENCE
         printf("the difference is %d\n", A - B);
         return(2);
-    case 2: // DIVIDE (WITH REMANDER)
+    case 2: // DIVIDE (WITH REMAINDER)
     	if (B == 0)	// Check for divide by zero	
     	{
     		printf("Divide by zero error");
     		exit(1);
     	}
-    	printf("the quotient is %d and the remander is %d\n", A / B, A % B);
+    	printf("the quotient is %d and the remainder is %d\n", A / B, A % B);
         return(3);
     case 3: // MULTIPLY
         printf("the product is %d\n", A * B);
