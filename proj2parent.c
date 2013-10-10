@@ -1,32 +1,36 @@
 /**************************************************************************/ 
-/* PROGRAM NAME: project2.c						  */
-/* CLASS:        CECS-326						  */
-/* INSTRUCTOR:   Mr. Haney Williams					  */
-/* STUDENTS:     Cody Gildea						  */
-/*               Steven Le						  */
-/* DESCRIPTION: This program utilizes a parent program and child program. */
+/* PROGRAM NAME: proj2parent.c	                      					  */
+/* CLASS:        CECS-326						                          */
+/* INSTRUCTOR:   Mr. Haney Williams					                      */
+/* STUDENTS:     Cody Gildea						                      */
+/*               Steven Le						                          */
+/* DESCRIPTION:  This program utilizes a parent program and child program.*/
+/*               This parent process creates four child processes via     */
+/*               execl call.  Once the parent process outputs the         */
+/*               arguments, it sleeps and allows child program to be      */
+/*               executed to perform arithmetic operations.               */
 /**************************************************************************/ 
 # include<stdio.h>
 # include<stdlib.h>
 # include<sys/types.h>
 # include<unistd.h>
 
-
 int main(int argc, char *argv[]) 
 {
-    int i, A, B, T, n;		// A = Argument 1 // B = Argument 2 // T = Sleeptime // n = Number of processes 
-    pid_t childpid;		// Child PID
-    char child_num[3]; 		// Character array for child number
+    //  A = Argument 1, B = Argument 2, T = Sleeptime, n = Number of processes
+    int i, A, B, T, n;  // i = counter for for-loop
+    pid_t childpid;	    // Child PID
+    char child_num[3]; 	// Character array for child number
     
     if (argc !=4) 		// If arguments are not 4 inputs
     { 
       printf("Invalid inputs, requires 4 arguments.\n", argv[0]); 
       exit(1); 
     } 
-    n = 4;     // Number of processes = 4
-    T = atoi(argv[1]);   // Argument index 1 is maximum sleeptime T
-    A = atoi(argv[2]); // Argument index 2 is first integer
-    B = atoi(argv[3]); // Argument index 3 is second integer
+    n = 4;                // Number of processes = 4
+    T = atoi(argv[1]);    // Argument index 1 is maximum sleeptime T
+    A = atoi(argv[2]);    // Argument index 2 is first integer
+    B = atoi(argv[3]);    // Argument index 3 is second integer
     if (T > 50 || T <= 0) // If argument T is greater than 50, 0, or negative, throw exception
     { 
       printf("Input error.\n");
@@ -58,6 +62,6 @@ int main(int argc, char *argv[])
 	      // Print Forked Child 
 	      printf("\nForked child %d\n", childpid);    
          }    // End switch
-    } // End for
+    } // End for-loop
     exit(0);
-}
+}   // End proj2parent.c
