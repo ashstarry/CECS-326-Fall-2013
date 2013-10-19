@@ -49,11 +49,11 @@ int main(int argc, char *argv[])
       if ((pid = fork()) == 0)
       {
          sprintf(value, "d",k);
-         execl("/net/d2/u7/c/cs105a/ak/Desktop/CECS-326-Fall-2013/lab5child", "lab5child", T, (char *) 0);
+         execl("/net/d2/u7/c/cs105a/ak/Desktop/CECS-326-Fall-2013/lab5child", "lab5child", argv[2], (char *) 0);
 //       execl("lab5child", "lab5child", value, (char *) 0);
       }
       else
-      printf ("Forked child %d\n", pid);
+          printf ("Forked child %d\n", pid);
    }
 
 /* Wait for children */
