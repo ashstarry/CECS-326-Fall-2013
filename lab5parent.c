@@ -17,7 +17,9 @@
 
 int main(int argc, char *argv[])
 {
-   pid_t pid, w; int k, status; char value[3];
+   pid_t pid, w; 
+   int status;
+   char value[3];
    int N, T;  // N = Number of processes. T = Sleeptime
    
    if(argc != 3) // If arguments are not 3 inputs
@@ -37,16 +39,17 @@ int main(int argc, char *argv[])
    if (T > 50 || T <= 0) // If argument T is greater than 50, 0, or negative, throw exception
    { 
       printf("Input error.\n");
-      printf("Maximum sleeptime m must be <= 50 and > 0.\n"); 
+      printf("Maximum sleeptime T must be <= 50 and > 0.\n"); 
       exit(1); 
    }
    
-   for (k=0;k < 3; ++k)
+   for (N = 0; N < 3; ++N)
    {
       if ((pid = fork()) == 0)
       {
-         sprintf(value, "d",k);
-         execl("lab5child", "lab5child", value, (char *) 0);
+         sprintf(value, "d",N);
+         execl("lab5child", "lab5child", T, (char *) 0);
+//       execl("lab5child", "lab5child", value, (char *) 0);
       }
       else
       printf ("Forked child %d\n", pid);

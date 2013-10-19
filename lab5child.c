@@ -15,10 +15,12 @@
 int main(int argc, char *argv[])
 {
    pid_t pid; int ret_value;
+   int T;
+   T = atoi(argv[2]);      // Argument index 1 is maximum sleeptime T
    pid = getpid();
    ret_value = (int) (pid %256);
    srand((unsigned) pid);
-   sleep(rand() %5);
+   sleep(rand() % T);
    if (atoi(*(argv + 1)) %2)
    {
       printf("Child %d is terminating with signal 009\n", pid);
