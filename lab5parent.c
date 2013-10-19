@@ -20,7 +20,7 @@ main(void)
       if ((pid = fork()) == 0)
       {
          sprintf(value, "d",k);
-         execl("child", "child", value, (char *) 0);
+         execl("lab5child", "lab5child", value, (char *) 0);
       }
       else
       printf ("Forked child %d\n", pid);
