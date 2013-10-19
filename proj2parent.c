@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
     if (T > 50 || T <= 0) // If argument T is greater than 50, 0, or negative, throw exception
     { 
       printf("Input error.\n");
-      printf("Maximum sleeptime m must be <= 50 and > 0.\n"); 
+      printf("Maximum sleeptime T must be <= 50 and > 0.\n"); 
       exit(1); 
     }
     srand(time(NULL));
