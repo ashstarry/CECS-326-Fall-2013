@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
 {
    pid_t pid, w; 
    int status;
+   int k; // Counter
    char value[3];
    int N, T;  // N = Number of processes. T = Sleeptime
    
@@ -43,11 +44,11 @@ int main(int argc, char *argv[])
       exit(1); 
    }
    
-   for (N = 0; N < 3; ++N)
+   for (k = 0; k < N; ++k)
    {
       if ((pid = fork()) == 0)
       {
-         sprintf(value, "d",N);
+         sprintf(value, "d",k);
          execl("lab5child", "lab5child", T, (char *) 0);
 //       execl("lab5child", "lab5child", value, (char *) 0);
       }
