@@ -25,6 +25,22 @@ int main(int argc, char *argv[])
       printf("Invalid inputs, requires 3 arguments.\n", argv[0]);
       exit(1);
    }
+   N = atoi(argv[1]); // Argument index 1 is number of processes N
+   T = atoi(argv[2]); // Argument index 2 is sleeptime T
+   
+   if (N > 20 || N <= 0) // If argument N is greater than 20, 0, or negative, throw exception
+   { 
+      printf("Input error.\n");
+      printf("Number of processes N must be <= 20 and > 0.\n"); 
+      exit(1); 
+   }
+   if (T > 50 || T <= 0) // If argument T is greater than 50, 0, or negative, throw exception
+   { 
+      printf("Input error.\n");
+      printf("Maximum sleeptime m must be <= 50 and > 0.\n"); 
+      exit(1); 
+   }
+   
    for (k=0;k < 3; ++k)
    {
       if ((pid = fork()) == 0)
