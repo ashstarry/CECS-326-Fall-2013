@@ -1,65 +1,69 @@
 /**************************************************************************/ 
-/* PROGRAM NAME: project3parent.c
-/* CLASS: CECS-326
-/* INSTRUCTOR: Mr. Haney Williams
-/* STUDENT: Steven Le
-/* DESCRIPTION: The parent program receives command line arguments:
-/*              N (number of child processes) and T (sleep time).
-/*              N must be less than 20 and T must be less than 50. 
-/*              The parent program passes the sleep time T to the child process.
-/*              The child process sleeps for a random time modulo T.
+/* PROGRAM NAME: proj3p.c                                                  */
+/* CLASS:        CECS-326                                                 */
+/* INSTRUCTOR:   Mr. Haney Williams                                       */
+/* STUDENTS:     Cody Gildea                                              */
+/*               Steven Le                                                */
+/* DESCRIPTION: This program utilizes a parent program and child program  */
+/* to demonstrate using locks  and wait with processes.                                          */
 /**************************************************************************/ 
 # include <stdio.h> 
 # include <stdlib.h> 
 # include <sys/types.h> 
-# include <unistd.h> 
+# include <unistd.h>
 # include <sys/wait.h>
+# include<sys/stat.h>
+# include<errno.h>
+# include<fcntl.h>
 
-int main(int argc, char *argv[])
+main(int argc, char *argv[])
 {
-   pid_t pid, w; 
-   int status;
-   int k; // Counter
-   char value[3];
-   int N, T;  // N = Number of processes. T = Sleeptime
-   
-   if(argc != 3) // If arguments are not 3 inputs
-   {
-      printf("Invalid inputs, requires 3 arguments.\n", argv[0]);
-      exit(1);
-   }
-   N = atoi(argv[1]); // Argument index 1 is number of processes N
-   T = atoi(argv[2]); // Argument index 2 is sleeptime T
-   
-   if (N > 20 || N <= 0) // If argument N is greater than 20, 0, or negative, throw exception
-   { 
-      printf("Input error.\n");
-      printf("Number of processes N must be <= 20 and > 0.\n"); 
-      exit(1); 
-   }
-   if (T > 50 || T <= 0) // If argument T is greater than 50, 0, or negative, throw exception
-   { 
-      printf("Input error.\n");
-      printf("Maximum sleeptime T must be <= 50 and > 0.\n"); 
-      exit(1); 
-   }
-   
-   for (k = 0; k < N; ++k)
-   {
-      if ((pid = fork()) == 0)
-      {
-         sprintf(value, "d",k);
-         execl("lab5child", "lab5child", value, argv[2], (char *) 0); // Path, name, sleeptime
-      }
-      else
-          printf ("Forked child %d\n", pid);
-   }
-
-/* Wait for children */
-    while ((w = wait(&status)) && w != - 1)
-    {
-       if (w != - 1)
-          printf ("Wait on PID: %d returns status of: %04X\n", w, status);
-    }
-    exit(0);
+        pid_t pid, w;                                   // For child process and wait time
+        int k, status, num_tries, sleeptime;  // For child process number, status, number processes, and sleeptime
+        char *fname;                                                  // File name
+                char *lockfname = "lock1";                          // Lock file name
+                char value[3];                                  // Char string for exec call
+        /* 
+        if (argc !=3) // If arguments are not 4 inputs
+           { 
+                     printf("Invalid inputs, requires 4 arguments.\n", argv[0]); 
+                     exit(1); 
+           } */
+                fname = argv[1];
+        num_tries = atoi(argv[2]);        // Number of tries, argument 2
+        sleeptime = atoi(argv[3]);        // Max sleeptime, argument 3
+        
+        if (num_tries <= 0)   // If argument n_try is less than or equal to 0, throw exception
+        {
+                printf("Input error.\n");
+                printf("Number of tries  must be > 0\n");
+                exit(1);
+        }
+        
+        if (sleeptime <= 0)   // If argument sleeptime is less than or equal to 0, throw exception
+        {
+                printf("Input error.\n");
+                printf("Sleeptime must be > 0\n");
+                exit(1);
+        }
+                unlink(lockfname);
+        for (k=0;k<3;++k)
+        {
+                if((pid = fork()) == 0)        // Create child process
+                {
+                        sprintf(value, "%d",k);
+                        execl("CECS-326-Fall-2013","p3c", value, argv[1], argv[2], argv[3], (char *)0);        // Call child program
+                }
+                                /*
+                else
+                        printf("Forked child %d\n",pid);
+                                */
+        }
+        /* Wait for children */
+        while ((w=wait(&status)) && w != - 1)
+        {
+                if(w != -1) 
+                        printf("Wait on PID: %d returns status of: %04X\n",w,status);
+        }
+        exit(0);
 }
