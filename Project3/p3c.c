@@ -36,7 +36,7 @@ main(int argc, char *argv[])
                         if((pid_c = fork()) == 0)
                         {
                                 sprintf(sleepChar, "%d", sleeptime);
-                                execlp("acquire", "acquire", lockfname, sleepChar, "1", (char*)0);
+                                execlp("Project3", "acquire", lockfname, sleepChar, "1", (char*)0);
                         }
                         while ((w=wait(&status)) && w != - 1)
                         {
@@ -65,7 +65,7 @@ main(int argc, char *argv[])
                  if ((pid_c = fork()) == 0)
                  {
                         sprintf(sleepChar, "%d", sleeptime);
-                        execlp("release", "release", lockfname, sleepChar, "1", (char*)0);
+                        execlp("Project3", "release", lockfname, sleepChar, "1", (char*)0);
                  }
                  while ((w=wait(&status)) && w != - 1)
                 {
