@@ -52,7 +52,7 @@ main(int argc, char *argv[])
                 if((pid = fork()) == 0)        // Create child process
                 {
                         sprintf(value, "%d",k);
-                        execl("CECS-326-Fall-2013","p3c", value, argv[1], argv[2], argv[3], (char *)0);        // Call child program
+                        execl("Project3","p3c", value, argv[1], argv[2], argv[3], (char *)0);        // Call child program
                 }
                                 /*
                 else
