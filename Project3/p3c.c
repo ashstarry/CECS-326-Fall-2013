@@ -17,7 +17,7 @@
 # include<fcntl.h>
 main(int argc, char *argv[])
 {
-        pid_t pid, pid_c w;                                                                // For child process
+        pid_t pid, pid_c, w;                                                                // For child process
         int ret_value, num_tries, sleeptime, i, value, status;        // Ret_value and sleeptime
         char *fname;                                                                          // File name
         char *lockfname = "lock1";                                                                // Lock file name
