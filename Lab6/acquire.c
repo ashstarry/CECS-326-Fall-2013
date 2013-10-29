@@ -10,6 +10,7 @@
 # include <fcntl.h> 
 # include <errno.h>
 # include <sys/types.h> 
+# include <sys/stat.h> 
 
 void main(int argc, char *argv[])
 {
