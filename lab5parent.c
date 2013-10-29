@@ -3,17 +3,16 @@
 /* CLASS: CECS-326
 /* INSTRUCTOR: Mr. Haney Williams
 /* STUDENT: Steven Le
-/* DESCRIPTION: Modify the parent program to receive command line arguments:
+/* DESCRIPTION: The parent program receives command line arguments:
 /*              N (number of child processes) and T (sleep time).
 /*              N must be less than 20 and T must be less than 50. 
 /*              The parent program passes the sleep time T to the child process.
-/8              The child process sleeps for a random time modulo T.
+/*              The child process sleeps for a random time modulo T.
 /**************************************************************************/ 
 # include <stdio.h> 
 # include <stdlib.h> 
 # include <sys/types.h> 
 # include <unistd.h> 
-# include <stdio.h>
 # include <sys/wait.h>
 
 int main(int argc, char *argv[])
@@ -50,8 +49,7 @@ int main(int argc, char *argv[])
       if ((pid = fork()) == 0)
       {
          sprintf(value, "d",k);
-         execl("/net/d2/u7/c/cs105a/ak/Desktop/CECS-326-Fall-2013/lab5child", "lab5child", argv[2], (char *) 0);
-//       execl("lab5child", "lab5child", value, (char *) 0);
+         execl("lab5child", "lab5child", value, argv[2], (char *) 0); // Path, name, sleeptime
       }
       else
           printf ("Forked child %d\n", pid);
