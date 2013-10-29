@@ -3,7 +3,8 @@
 /* CLASS: CECS-326
 /* INSTRUCTOR: Mr. Haney Williams
 /* STUDENT: Steven Le
-/* DESCRIPTION: 
+/* DESCRIPTION: This program creates a lock file by utilizing system calls
+/*              and allows processes to communicate with one another.
 /**************************************************************************/ 
 # include <stdio.h> 
 # include <stdlib.h>
