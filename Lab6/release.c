@@ -11,7 +11,7 @@
 # include <errno.h>
 # include <sys/types.h> 
 
-int main(int argc, char *argv[])
+void main(int argc, char *argv[])
 {
    char *fname; int fd, sleeptime, n_try, count=0; pid_t pid;
    pid = getpid();
