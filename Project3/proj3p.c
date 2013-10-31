@@ -1,11 +1,11 @@
 /**************************************************************************/ 
-/* PROGRAM NAME: proj3p.c                                                  */
+/* PROGRAM NAME: proj3p.c                                                 */
 /* CLASS:        CECS-326                                                 */
 /* INSTRUCTOR:   Mr. Haney Williams                                       */
 /* STUDENTS:     Cody Gildea                                              */
 /*               Steven Le                                                */
 /* DESCRIPTION: This program utilizes a parent program and child program  */
-/* to demonstrate using locks  and wait with processes.                                          */
+/* to demonstrate using 'locks and 'critical states' with processes.          */
 /**************************************************************************/ 
 # include <stdio.h> 
 # include <stdlib.h> 
@@ -18,21 +18,26 @@
 
 main(int argc, char *argv[])
 {
-        pid_t pid, w;                         // For child process and wait time
+        pid_t pid, w;                                   // For child process and wait time
         int k, status, num_tries, sleeptime;  // For child process number, status, number processes, and sleeptime
-        char *fname;                          // File name
-                char *lockfname = "lock1";    // Lock file name
-                char value[3];                // Char string for exec call
-        /* 
-        if (argc !=3) // If arguments are not 4 inputs
+        char *fname;                                                  // File name
+                char *lockfname = "lock1";                          // Lock file name
+                char value[3];                                  // Char string for exec call
+         
+        if (argc !=4) // If arguments are not 4 inputs
            { 
                      printf("Invalid inputs, requires 4 arguments.\n", argv[0]); 
                      exit(1); 
-           } */
-        fname = argv[1];
-        num_tries = atoi(argv[2]);        // Number of tries, argument 2
-        sleeptime = atoi(argv[3]);        // Max sleeptime, argument 3
-        
+           } 
+        fname = argv[1];                  // File name, argument 2
+        num_tries = atoi(argv[2]);        // Number of tries, argument 3
+        sleeptime = atoi(argv[3]);        // Max sleeptime, argument 4
+        if (strcmp("text.dat", fname))
+        {
+                printf("Input error.\n");
+                printf("Argument 2 must be text.dat\n");
+                exit(1);
+        }
         if (num_tries <= 0)   // If argument n_try is less than or equal to 0, throw exception
         {
                 printf("Input error.\n");
@@ -46,18 +51,20 @@ main(int argc, char *argv[])
                 printf("Sleeptime must be > 0\n");
                 exit(1);
         }
+                /* Unlock lock*/
                 unlink(lockfname);
         for (k=0;k<3;++k)
         {
                 if((pid = fork()) == 0)        // Create child process
                 {
                         sprintf(value, "%d",k);
-                        execl("proj3c","child", value, argv[1], argv[2], argv[3], (char *)0);        // Call child program
+                        execl("proj3c","proj3c", value, argv[1], argv[2], argv[3], (char *)0);        // Call child program
                 }
-                                /*
+                                
                 else
+                        /* Display forked child*/
                         printf("Forked child %d\n",pid);
-                                */
+                                
         }
         /* Wait for children */
         while ((w=wait(&status)) && w != - 1)
