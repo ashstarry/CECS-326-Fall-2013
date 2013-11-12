@@ -51,6 +51,7 @@ int main(void)
    printf ("Create %s", ctime(&sem_buf.sem_ctime));
 /* Set arg (the union) to the address of the initializing vector */
    arg.array = sem_array;
+   
    if (semctl(sem_id, 0, SETALL, arg) == -1)
    {
       perror("semctl: SETALL");
