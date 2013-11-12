@@ -66,9 +66,9 @@ int main(void)
       printf ("Semaphore %d has value of %d\n",i, sem_value);
    }
 /* remove semaphore */
-   if (semctl(sem_id, 0, IPC_RMID, 0) == -1) 
+/*   if (semctl(sem_id, 0, IPC_RMID, 0) == -1) 
    {
       perror ("semctl: IPC_RMID");
       exit(5);
-   }
+   }*/
 }
