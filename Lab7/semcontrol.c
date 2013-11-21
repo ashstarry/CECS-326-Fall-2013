@@ -1,9 +1,9 @@
 /**************************************************************************/ 
 /* PROGRAM NAME: semcontrol.c
 /* CLASS:        CECS-326
-/* INSTRUCTOR: Mr. Haney Williams
-/* STUDENT: Steven Le
-/* DESCRIPTION: 
+/* INSTRUCTOR:   Mr. Haney Williams
+/* STUDENT:      Steven Le
+/* DESCRIPTION:  This lab utilizes the concept of semaphore data structures.
 /**************************************************************************/ 
 
 # include <stdio.h>
