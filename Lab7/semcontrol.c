@@ -30,7 +30,8 @@ int main(void)
         ipc_key = ftok(".", 'S'); // Generate a key from pathname "."
  
         /* Create semaphore */ 
-        if ((sem_id = semget(ipc_key, NS, IPC_CREAT| IPC_EXCL | 0666)) == -1) 
+//      if ((sem_id = semget(ipc_key, NS, IPC_CREAT| IPC_EXCL | 0666)) == -1) 
+        if ((sem_id = semget(ipc_key, NS, IPC_CREAT| 0666)) == -1) 
         { 
                 perror ("semget: IPC | 0666"); 
                  exit(1); 
