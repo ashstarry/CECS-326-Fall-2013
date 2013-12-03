@@ -4,7 +4,7 @@
 /* INSTRUCTOR:   Mr. Haney Williams
 /* STUDENT:      Steven Le
 /* DESCRIPTION:  This lab utilizes the concept of named and unnamed pipes.
-/* USAGE:        pipe1 pipename. Child writes a message to parent.
+/* USAGE:        pipe1a pipename. Child writes a message to parent.
 /**************************************************************************/ 
 
 #include <stdio.h>
@@ -28,7 +28,7 @@ void main(int argc, char *argv[])
    unsigned strsize;
    if (argc !=2)
    {
-      printf ("\n Usage: %s pipename\n", argv[0]);
+      printf ("Error.  Can only take two arguments.\n", argv[0]);
       exit(1);
    }
 /* generate a named pipe with r/w for user */
