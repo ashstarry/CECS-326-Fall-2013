@@ -50,6 +50,23 @@ void main(int argc, char *argv[])
          perror("Child cannot open FIFO");
          exit(1);
       }
+   /* parent does a read */
+      printf ("Parent is about to read\n", (long)getpid());
+      while ((wait(&status) == -1) && (errno == EINTR));
+         if (read(fd, buf, BUFSIZE) <=0)
+         {
+            perror("Parent read from FIFO failed\n");exit(1);
+         }
+         printf ("Parent %ld received: %s\n", (long)getpid(), buf);
+   }
+   else
+   {
+      printf ("Parent %ld is about to open FIFO [%s].\n", (long)getpid(), argv[1]);
+      if ((fd = open(argv[1], O_RDONLY | O_NONBLOCK)) == -1)
+      {
+         perror("Parent cannot open FIFO");
+         exit(1);
+      }
       /* In the child */
       sprintf (buf, "This was written by child %ld\n", (long)getpid());
       strsize = strlen(buf) + 1;
@@ -59,23 +76,6 @@ void main(int argc, char *argv[])
          exit(1);
       }
       printf ("Child %ld is done\n", (long)getpid());
-   }
-   else
-   {
-   /* parent does a read */
-      printf ("Parent %ld is about to open FIFO [%s].\n", (long)getpid(), argv[1]);
-      if ((fd = open(argv[1], O_RDONLY | O_NONBLOCK)) == -1)
-      {
-         perror("Parent cannot open FIFO");
-         exit(1);
-      }
-      printf ("Parent is about to read\n", (long)getpid());
-      while ((wait(&status) == -1) && (errno == EINTR));
-         if (read(fd, buf, BUFSIZE) <=0)
-         {
-            perror("Parent read from FIFO failed\n");exit(1);
-         }
-         printf ("Parent %ld received: %s\n", (long)getpid(), buf);
    }
    exit(0);
 }
