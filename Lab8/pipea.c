@@ -42,7 +42,7 @@ void main(int argc, char *argv[])
          close(f_des[0]);
          if (write(f_des[1], argv[1], strlen(argv[1])) != -1)
          {
-            printf ("Message sent by parent: [%s]\n", argv[1]);
+            printf ("Message sent by child: *%s*\n", argv[1]);
             fflush(stdout);
          }
          else
@@ -55,7 +55,7 @@ void main(int argc, char *argv[])
          close(f_des[1]);
          if (read(f_des[0], message, BUFSIZ) != -1)
          {
-            printf ("Message received by child: *%s*\n", message);
+            printf ("Message received by parent: [%s]\n", message);
             fflush(stdout);
          }
          else
