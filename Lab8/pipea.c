@@ -22,7 +22,7 @@ void main(int argc, char *argv[])
    int i,k, n; pid_t childpid;
    if (argc !=2)
    {
-      printf ("\nError.  Must have more than one argument.\n", *argv);
+      printf ("Error.  Must have two arguments.\n", *argv);
       exit(1);
    }
 
@@ -39,7 +39,7 @@ void main(int argc, char *argv[])
          perror ("Fork");
          exit(3);
       case 0: /* In the parent */
-         close(f_des[0]);
+         close(f_des[1]);
          if (write(f_des[1], argv[1], strlen(argv[1])) != -1)
          {
             printf ("Message sent by parent: [%s]\n", argv[1]);
@@ -52,7 +52,7 @@ void main(int argc, char *argv[])
          }
          break;
      default: /* In the child */
-         close(f_des[1]);
+         close(f_des[0]);
          if (read(f_des[0], message, BUFSIZ) != -1)
          {
             printf ("Message received by child: *%s*\n", message);
