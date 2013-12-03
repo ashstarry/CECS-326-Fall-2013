@@ -62,8 +62,8 @@ void main(int argc, char *argv[])
    }
    else
    {
-       /* parent does a read */
-      printf ("Parent %ld is about to open FIFO [%s].\n", (long) getpid(), argv[1]);
+   /* parent does a read */
+      printf ("Parent %ld is about to open FIFO [%s].\n", (long)getpid(), argv[1]);
       if ((fd = open(argv[1], O_RDONLY | O_NONBLOCK)) == -1)
       {
          perror("Parent cannot open FIFO");
