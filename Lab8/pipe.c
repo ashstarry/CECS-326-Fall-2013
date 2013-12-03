@@ -1,5 +1,11 @@
-/* Unnamed pipe pipe.c */
-/* Usage: pipe message_to_be_written. Parent write a message to child */
+/**************************************************************************/ 
+/* PROGRAM NAME: pipe.c
+/* CLASS:        CECS-326
+/* INSTRUCTOR:   Mr. Haney Williams
+/* STUDENT:      Steven Le
+/* DESCRIPTION:  This lab utilizes the concept of named and unnamed pipes.
+/* USAGE:        pipe message_to_be_written. Parent writes message to child.
+/**************************************************************************/ 
 
 #include <stdio.h>
 #include <stdlib.h>

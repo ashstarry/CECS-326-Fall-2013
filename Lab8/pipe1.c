@@ -1,5 +1,11 @@
-/* Unnamed pipe pipe.c */
-/* Usage: pipe message_to_be_written. Parent write a message to child */
+/**************************************************************************/ 
+/* PROGRAM NAME: pipe1.c
+/* CLASS:        CECS-326
+/* INSTRUCTOR:   Mr. Haney Williams
+/* STUDENT:      Steven Le
+/* DESCRIPTION:  This lab utilizes the concept of named and unnamed pipes.
+/* USAGE:        pipe1 pipename. Child writes a message to parent.
+/**************************************************************************/ 
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,8 +20,6 @@
 #include <errno.h>
 # define BUFSIZE 256
 
-/* Named pipe pipe1.c */
-/* Usage: pipe1 pipename. Child writes a message to parent */
 void main(int argc, char *argv[])
 {
    mode_t fifo_mode = S_IRUSR | S_IWUSR;
