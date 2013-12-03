@@ -44,10 +44,10 @@ void main(int argc, char *argv[])
    }
    else if (child == 0)
    {
-      printf ("Child %ld is about to open FIFO *%s*.\n", (long)getpid(), argv[1]);
-      if ((fd = open(argv[1], O_WRONLY)) == -1)
+      printf ("Parent %ld is about to open FIFO [%s].\n", (long)getpid(), argv[1]);
+      if ((fd = open(argv[1], O_RDONLY | O_NONBLOCK)) == -1)
       {
-         perror("Child cannot open FIFO");
+         perror("Parent cannot open FIFO");
          exit(1);
       }
    /* parent does a read */
@@ -61,10 +61,10 @@ void main(int argc, char *argv[])
    }
    else
    {
-      printf ("Parent %ld is about to open FIFO [%s].\n", (long)getpid(), argv[1]);
-      if ((fd = open(argv[1], O_RDONLY | O_NONBLOCK)) == -1)
+      printf ("Child %ld is about to open FIFO *%s*.\n", (long)getpid(), argv[1]);
+      if ((fd = open(argv[1], O_WRONLY)) == -1)
       {
-         perror("Parent cannot open FIFO");
+         perror("Child cannot open FIFO");
          exit(1);
       }
       /* In the child */
