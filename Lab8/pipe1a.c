@@ -4,7 +4,7 @@
 /* INSTRUCTOR:   Mr. Haney Williams
 /* STUDENT:      Steven Le
 /* DESCRIPTION:  This lab utilizes the concept of named and unnamed pipes.
-/* USAGE:        pipe1a pipename. Child sends a message to parent.
+/* USAGE:        "pipe1a [pipename]". Child sends a message to parent.
 /**************************************************************************/ 
 
 #include <stdio.h>
@@ -18,20 +18,22 @@
 #include <fcntl.h>
 #include <limits.h>
 #include <errno.h>
-# define BUFSIZE 256
+#define  BUFSIZE 256
 
 void main(int argc, char *argv[])
 {
-   mode_t fifo_mode = S_IRUSR | S_IWUSR;
+   mode_t fifo_mode = S_IRUSR | S_IWUSR; // Read-write permission bit for file mode for user
    int fd, status, child;
    char buf[BUFSIZE];
    unsigned strsize;
-   if (argc !=2)
+
+   if (argc !=2)       // Argument check: must be 2 arguments.  Else, throw exception.
    {
       printf ("Error.  Can only take two arguments.\n", argv[0]);
       exit(1);
    }
-/* generate a named pipe with r/w for user */
+
+/* Generate a named pipe with r/w for user */
    if ((mkfifo(argv[1],fifo_mode) == -1) && (errno != EEXIST))
    {
       perror ("Pipe");
@@ -50,7 +52,8 @@ void main(int argc, char *argv[])
          perror("Child cannot open FIFO");
          exit(1);
       }
-   /* Child does a read */
+      
+/* Child does a read */
       printf ("Child is about to read\n", (long)getpid());
       while ((wait(&status) == -1) && (errno == EINTR));
          if (read(fd, buf, BUFSIZE) <=0)
@@ -67,7 +70,8 @@ void main(int argc, char *argv[])
          perror("Parent cannot open FIFO");
          exit(1);
       }
-      /* In the parent */
+      
+/* In the parent */
       sprintf (buf, "This was written by parent %ld\n", (long)getpid());
       strsize = strlen(buf) + 1;
       if (write(fd, buf, strsize) != strsize)

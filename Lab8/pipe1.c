@@ -4,7 +4,7 @@
 /* INSTRUCTOR:   Mr. Haney Williams
 /* STUDENT:      Steven Le
 /* DESCRIPTION:  This lab utilizes the concept of named and unnamed pipes.
-/* USAGE:        pipe1 pipename. Child writes a message to parent.
+/* USAGE:        "pipe1 [pipename]". Child writes a message to parent.
 /**************************************************************************/ 
 
 #include <stdio.h>

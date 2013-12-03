@@ -4,7 +4,7 @@
 /* INSTRUCTOR:   Mr. Haney Williams
 /* STUDENT:      Steven Le
 /* DESCRIPTION:  This lab utilizes the concept of named and unnamed pipes.
-/* USAGE:        pipe message_to_be_written. Child writes message to parent.
+/* USAGE:        "pipea [message]". Child writes message to parent.
 /**************************************************************************/ 
 
 #include <stdio.h>
@@ -17,10 +17,11 @@ void main(int argc, char *argv[])
 {
    int f_des[2];        // Integer array with 2 values at index 0 and 1.
    static char message[BUFSIZ];
-   char buffer[MAX_CANON]; // char Buffer array
-   char *c;
-   int i, k, n;
-   pid_t childpid;
+   char buffer[MAX_CANON]; // char Buffer array given in specifications, not utilized
+   char *c;             // Given in specifications, not utilized
+   int i, k, n;         // Given in specifications, not utilized
+   pid_t childpid;      // Given in specifications, not utilized
+
    if (argc !=2)        // Argument check: must be 2 arguments.  Else, throw exception.
    {
       printf ("Error.  Must have two arguments.\n", *argv);

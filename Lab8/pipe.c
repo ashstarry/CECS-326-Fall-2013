@@ -4,7 +4,7 @@
 /* INSTRUCTOR:   Mr. Haney Williams
 /* STUDENT:      Steven Le
 /* DESCRIPTION:  This lab utilizes the concept of named and unnamed pipes.
-/* USAGE:        pipe message_to_be_written. Parent writes message to child.
+/* USAGE:        "pipea [message]". Parent writes message to child.
 /**************************************************************************/ 
 
 #include <stdio.h>
